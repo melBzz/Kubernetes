@@ -1,0 +1,7 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+system:authenticated,1429,3116,285.8,623.2,1687,337.40000000000003
+system:unauthenticated,660,1320,132.0,264.0,660,132.0
+system:nodes,217,656,43.4,131.2,439,87.79999999999998
+system:serviceaccounts,251,514,50.2,102.8,263,52.599999999999994
+system:serviceaccounts:kube-system,251,514,50.2,102.8,263,52.599999999999994
+system:masters,210,420,42.0,84.0,210,42.0

@@ -1,0 +1,14 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+"RBAC: allowed by ClusterRoleBinding ""system:controller:deployment-controller"" of ClusterRole ""system:controller:deployment-controller"" to ServiceAccount ""deployment-controller/kube-system""",0,1739,0.0,347.8,1739,347.8
+"RBAC: allowed by ClusterRoleBinding ""system:controller:replicaset-controller"" of ClusterRole ""system:controller:replicaset-controller"" to ServiceAccount ""replicaset-controller/kube-system""",0,1730,0.0,346.0,1730,346.0
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:unauthenticated""",330,303,66.0,60.6,-27,-5.399999999999999
+"RBAC: allowed by ClusterRoleBinding ""system:kube-controller-manager"" of ClusterRole ""system:kube-controller-manager"" to User ""system:kube-controller-manager""",236,220,47.2,44.0,-16,-3.200000000000003
+"RBAC: allowed by ClusterRoleBinding ""system:kube-scheduler"" of ClusterRole ""system:kube-scheduler"" to User ""system:kube-scheduler""",161,154,32.2,30.8,-7,-1.4000000000000021
+"RBAC: allowed by ClusterRoleBinding ""system:discovery"" of ClusterRole ""system:discovery"" to Group ""system:authenticated""",65,47,13.0,9.4,-18,-3.5999999999999996
+"RBAC: allowed by ClusterRoleBinding ""calico-kube-controllers"" of ClusterRole ""calico-kube-controllers"" to ServiceAccount ""calico-kube-controllers/kube-system""",30,30,6.0,6.0,0,0.0
+"RBAC: allowed by ClusterRoleBinding ""kubeadm:cluster-admins"" of ClusterRole ""cluster-admin"" to Group ""kubeadm:cluster-admins""",0,21,0.0,4.2,21,4.2
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:authenticated""",5,19,1.0,3.8,14,2.8
+"RBAC: allowed by ClusterRoleBinding ""kubeadm:node-proxier"" of ClusterRole ""system:node-proxier"" to ServiceAccount ""kube-proxy/kube-system""",14,10,2.8,2.0,-4,-0.7999999999999998
+"RBAC: allowed by ClusterRoleBinding ""system:coredns"" of ClusterRole ""system:coredns"" to ServiceAccount ""coredns/kube-system""",6,4,1.2,0.8,-2,-0.3999999999999999
+"RBAC: allowed by ClusterRoleBinding ""system:volume-scheduler"" of ClusterRole ""system:volume-scheduler"" to User ""system:kube-scheduler""",5,4,1.0,0.8,-1,-0.19999999999999996
+"RBAC: allowed by ClusterRoleBinding ""calico-node"" of ClusterRole ""calico-node"" to ServiceAccount ""calico-node/kube-system""",14,0,2.8,0.0,-14,-2.8

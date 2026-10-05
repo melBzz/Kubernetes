@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: safe-ns
+  labels:
+    pod-security.kubernetes.io/enforce: restricted   # applies the "restricted" level to all pods in this namespace

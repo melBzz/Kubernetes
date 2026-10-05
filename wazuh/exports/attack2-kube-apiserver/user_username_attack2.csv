@@ -1,0 +1,14 @@
+﻿"data.user.username.keyword: Descending",Count
+"system:anonymous",1320
+"system:kube-controller-manager",862
+"system:kube-scheduler",664
+"system:apiserver",420
+"system:serviceaccount:kube-system:calico-kube-controllers",252
+"system:node:k8s-w1",222
+"system:node:k8s-cp",220
+"system:node:k8s-w2",214
+"system:serviceaccount:kube-system:generic-garbage-collector",80
+"system:serviceaccount:kube-system:resourcequota-controller",80
+"system:serviceaccount:kube-system:calico-node",48
+"system:serviceaccount:kube-system:kube-proxy",36
+"system:serviceaccount:kube-system:coredns",18

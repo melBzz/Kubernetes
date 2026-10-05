@@ -1,0 +1,15 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+system:anonymous,660,628,132.0,125.6,-32,-6.400000000000006
+system:kube-controller-manager,428,429,85.6,85.8,1,0.20000000000000284
+system:kube-scheduler,323,324,64.6,64.8,1,0.20000000000000284
+system:apiserver,210,210,42.0,42.0,0,0.0
+kubernetes-admin,0,180,0.0,36.0,180,36.0
+system:serviceaccount:kube-system:calico-kube-controllers,120,126,24.0,25.2,6,1.1999999999999993
+system:node:k8s-cp,72,121,14.4,24.2,49,9.799999999999999
+system:node:k8s-w1,71,110,14.2,22.0,39,7.800000000000001
+system:node:k8s-w2,74,105,14.8,21.0,31,6.199999999999999
+system:serviceaccount:kube-system:generic-garbage-collector,40,40,8.0,8.0,0,0.0
+system:serviceaccount:kube-system:resourcequota-controller,40,40,8.0,8.0,0,0.0
+system:serviceaccount:kube-system:kube-proxy,21,21,4.2,4.2,0,0.0
+system:serviceaccount:kube-system:calico-node,21,0,4.2,0.0,-21,-4.2
+system:serviceaccount:kube-system:coredns,9,0,1.8,0.0,-9,-1.8

@@ -1,0 +1,22 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+kubelet/v1.30.14 (linux/amd64) kubernetes/9e18483,217,5445,43.4,1089.0,5228,1045.6
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:deployment-controller,0,3129,0.0,625.8,3129,625.8
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:replicaset-controller,0,3119,0.0,623.8,3119,623.8
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:endpoint-controller,0,2032,0.0,406.4,2032,406.4
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:endpointslice-controller,0,1964,0.0,392.8,1964,392.8
+kube-probe/1.30,660,423,132.0,84.6,-237,-47.400000000000006
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election,296,195,59.2,39.0,-101,-20.200000000000003
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election,296,186,59.2,37.2,-110,-22.0
+kube-apiserver/v1.30.14 (linux/amd64) kubernetes/9e18483,210,140,42.0,28.0,-70,-14.0
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/shared-informers,96,54,19.2,10.8,-42,-8.399999999999999
+Go-http-client/2.0,72,40,14.4,8.0,-32,-6.4
+kube-controllers/v0.0.0 (linux/amd64) kubernetes/$Format,60,39,12.0,7.8,-21,-4.2
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/metadata-informers,36,32,7.2,6.4,-4,-0.7999999999999998
+kubectl/v1.30.14 (linux/amd64) kubernetes/9e18483,0,31,0.0,6.2,31,6.2
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:resourcequota-controller,40,27,8.0,5.4,-13,-2.5999999999999996
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:generic-garbage-collector,40,26,8.0,5.2,-14,-2.8
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/scheduler,27,21,5.4,4.2,-6,-1.2000000000000002
+kube-proxy/v1.30.14 (linux/amd64) kubernetes/9e18483,21,7,4.2,1.4,-14,-2.8000000000000003
+coredns/v0.0.0 (linux/amd64) kubernetes/$Format,9,3,1.8,0.6,-6,-1.2000000000000002
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483,0,3,0.0,0.6,3,0.6
+calico-node/v0.0.0 (linux/amd64) kubernetes/$Format,9,0,1.8,0.0,-9,-1.8

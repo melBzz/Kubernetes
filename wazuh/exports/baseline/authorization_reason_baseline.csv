@@ -1,0 +1,11 @@
+﻿"data.annotations.authorization.k8s.io/reason.keyword: Descending",Count
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:unauthenticated""",330
+"RBAC: allowed by ClusterRoleBinding ""system:kube-controller-manager"" of ClusterRole ""system:kube-controller-manager"" to User ""system:kube-controller-manager""",236
+"RBAC: allowed by ClusterRoleBinding ""system:kube-scheduler"" of ClusterRole ""system:kube-scheduler"" to User ""system:kube-scheduler""",161
+"RBAC: allowed by ClusterRoleBinding ""system:discovery"" of ClusterRole ""system:discovery"" to Group ""system:authenticated""",65
+"RBAC: allowed by ClusterRoleBinding ""calico-kube-controllers"" of ClusterRole ""calico-kube-controllers"" to ServiceAccount ""calico-kube-controllers/kube-system""",30
+"RBAC: allowed by ClusterRoleBinding ""calico-node"" of ClusterRole ""calico-node"" to ServiceAccount ""calico-node/kube-system""",14
+"RBAC: allowed by ClusterRoleBinding ""kubeadm:node-proxier"" of ClusterRole ""system:node-proxier"" to ServiceAccount ""kube-proxy/kube-system""",14
+"RBAC: allowed by ClusterRoleBinding ""system:coredns"" of ClusterRole ""system:coredns"" to ServiceAccount ""coredns/kube-system""",6
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:authenticated""",5
+"RBAC: allowed by ClusterRoleBinding ""system:volume-scheduler"" of ClusterRole ""system:volume-scheduler"" to User ""system:kube-scheduler""",5

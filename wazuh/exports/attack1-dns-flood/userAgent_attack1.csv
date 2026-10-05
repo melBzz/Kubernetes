@@ -1,0 +1,16 @@
+﻿"data.userAgent.keyword: Descending",Count
+"kube-probe/1.30",628
+"kubelet/v1.30.14 (linux/amd64) kubernetes/9e18483",336
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election",294
+"kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election",294
+"kube-apiserver/v1.30.14 (linux/amd64) kubernetes/9e18483",210
+"kubectl/v1.30.14 (linux/amd64) kubernetes/9e18483",180
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/shared-informers",99
+"kube-controllers/v0.0.0 (linux/amd64) kubernetes/$Format",66
+"Go-http-client/2.0",60
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:generic-garbage-collector",40
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:resourcequota-controller",40
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/metadata-informers",36
+"kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/scheduler",27
+"kube-proxy/v1.30.14 (linux/amd64) kubernetes/9e18483",21
+"kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483",3

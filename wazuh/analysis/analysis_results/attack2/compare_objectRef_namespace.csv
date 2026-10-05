@@ -1,0 +1,6 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+kube-system,643,1284,128.6,256.8,641,128.20000000000002
+default,116,240,23.2,48.0,124,24.8
+kube-node-lease,88,176,17.6,35.2,88,17.6
+attacker-ns,0,6,0.0,1.2,6,1.2
+safe-ns,0,6,0.0,1.2,6,1.2

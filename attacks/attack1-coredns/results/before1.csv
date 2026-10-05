@@ -1,0 +1,8 @@
+timestamp,fetch_status,rejects_total,conntrack_count,conntrack_max,cpu_us,cpu_sy,dns_req_total,cache_misses,dns_resp_servfail,proxy_conn_cache_misses,cache_requests,dns_req_dur_sum,dns_req_dur_count,tcp_probe_status,tcp_probe_attempts,tcp_probe_success,tcp_probe_loss_pct
+2026-09-21 20:42:23,OK,0,294,131072,4.6,6.2,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:42:46,OK,0,359,131072,4.7,3.1,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:43:07,OK,0,275,131072,1.6,4.7,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:43:27,OK,0,342,131072,6.2,3.1,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:43:48,OK,0,407,131072,0.0,1.7,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:44:08,OK,0,327,131072,3.2,3.2,1,1,0,1,1,0.0342271,1,OK,20,20,0.0
+2026-09-21 20:44:29,OK,0,394,131072,3.2,3.2,1,1,0,1,1,0.0342271,1,OK,20,20,0.0

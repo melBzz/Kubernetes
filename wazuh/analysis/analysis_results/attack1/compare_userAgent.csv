@@ -1,0 +1,18 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+kube-probe/1.30,660,628,132.0,125.6,-32,-6.400000000000006
+kubelet/v1.30.14 (linux/amd64) kubernetes/9e18483,217,336,43.4,67.2,119,23.800000000000004
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election,296,294,59.2,58.8,-2,-0.4000000000000057
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election,296,294,59.2,58.8,-2,-0.4000000000000057
+kube-apiserver/v1.30.14 (linux/amd64) kubernetes/9e18483,210,210,42.0,42.0,0,0.0
+kubectl/v1.30.14 (linux/amd64) kubernetes/9e18483,0,180,0.0,36.0,180,36.0
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/shared-informers,96,99,19.2,19.8,3,0.6000000000000014
+kube-controllers/v0.0.0 (linux/amd64) kubernetes/$Format,60,66,12.0,13.2,6,1.1999999999999993
+Go-http-client/2.0,72,60,14.4,12.0,-12,-2.4000000000000004
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:generic-garbage-collector,40,40,8.0,8.0,0,0.0
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:resourcequota-controller,40,40,8.0,8.0,0,0.0
+kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/metadata-informers,36,36,7.2,7.2,0,0.0
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/scheduler,27,27,5.4,5.4,0,0.0
+kube-proxy/v1.30.14 (linux/amd64) kubernetes/9e18483,21,21,4.2,4.2,0,0.0
+kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483,0,3,0.0,0.6,3,0.6
+coredns/v0.0.0 (linux/amd64) kubernetes/$Format,9,0,1.8,0.0,-9,-1.8
+calico-node/v0.0.0 (linux/amd64) kubernetes/$Format,9,0,1.8,0.0,-9,-1.8

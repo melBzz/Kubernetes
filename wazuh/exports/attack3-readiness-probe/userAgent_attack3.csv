@@ -1,0 +1,18 @@
+﻿"data.userAgent.keyword: Descending",Count
+"kubelet/v1.30.14 (linux/amd64) kubernetes/9e18483",9184
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:deployment-controller",5142
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:replicaset-controller",5141
+"kube-probe/1.30",607
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election",276
+"kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/leader-election",276
+"kube-apiserver/v1.30.14 (linux/amd64) kubernetes/9e18483",213
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/shared-informers",96
+"kube-controllers/v0.0.0 (linux/amd64) kubernetes/$Format",57
+"Go-http-client/2.0",55
+"kubectl/v1.30.14 (linux/amd64) kubernetes/9e18483",42
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:resourcequota-controller",38
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/system:serviceaccount:kube-system:generic-garbage-collector",37
+"kube-scheduler/v1.30.14 (linux/amd64) kubernetes/9e18483/scheduler",30
+"kube-controller-manager/v1.30.14 (linux/amd64) kubernetes/9e18483/metadata-informers",27
+"kube-proxy/v1.30.14 (linux/amd64) kubernetes/9e18483",16
+"coredns/v0.0.0 (linux/amd64) kubernetes/$Format",6

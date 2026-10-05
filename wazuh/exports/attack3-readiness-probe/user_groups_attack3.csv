@@ -1,0 +1,8 @@
+﻿"data.user.groups.keyword: Descending",Count
+"system:authenticated",20636
+"system:serviceaccounts",10492
+"system:serviceaccounts:kube-system",10492
+"system:nodes",9184
+"system:unauthenticated",607
+"system:masters",213
+"kubeadm:cluster-admins",42

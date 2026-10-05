@@ -1,0 +1,7 @@
+# namespace-attacker.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: attacker-ns
+  labels:
+    pod-security.kubernetes.io/enforce: restricted

@@ -1,0 +1,4800 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-1
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-1
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-1
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-2
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-2
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-2
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-3
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-3
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-3
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-4
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-4
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-4
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-5
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-5
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-5
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-6
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-6
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-6
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-7
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-7
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-7
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-8
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-8
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-8
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-9
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-9
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-9
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-10
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-10
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-10
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-11
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-11
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-11
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-12
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-12
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-12
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-13
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-13
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-13
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-14
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-14
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-14
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-15
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-15
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-15
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-16
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-16
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-16
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-17
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-17
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-17
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-18
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-18
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-18
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-19
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-19
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-19
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-20
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-20
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-20
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-21
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-21
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-21
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-22
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-22
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-22
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-23
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-23
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-23
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-24
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-24
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-24
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-25
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-25
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-25
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-26
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-26
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-26
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-27
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-27
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-27
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-28
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-28
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-28
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-29
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-29
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-29
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-30
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-30
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-30
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-31
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-31
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-31
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-32
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-32
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-32
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-33
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-33
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-33
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-34
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-34
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-34
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-35
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-35
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-35
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-36
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-36
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-36
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-37
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-37
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-37
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-38
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-38
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-38
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-39
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-39
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-39
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-40
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-40
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-40
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-41
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-41
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-41
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-42
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-42
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-42
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-43
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-43
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-43
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-44
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-44
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-44
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-45
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-45
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-45
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-46
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-46
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-46
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-47
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-47
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-47
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-48
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-48
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-48
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-49
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-49
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-49
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-50
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-50
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-50
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-51
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-51
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-51
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-52
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-52
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-52
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-53
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-53
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-53
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-54
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-54
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-54
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-55
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-55
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-55
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-56
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-56
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-56
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-57
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-57
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-57
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-58
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-58
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-58
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-59
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-59
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-59
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-60
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-60
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-60
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-61
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-61
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-61
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-62
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-62
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-62
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-63
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-63
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-63
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-64
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-64
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-64
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-65
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-65
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-65
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-66
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-66
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-66
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-67
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-67
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-67
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-68
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-68
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-68
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-69
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-69
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-69
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-70
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-70
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-70
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-71
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-71
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-71
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-72
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-72
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-72
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-73
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-73
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-73
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-74
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-74
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-74
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-75
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-75
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-75
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-76
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-76
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-76
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-77
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-77
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-77
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-78
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-78
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-78
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-79
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-79
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-79
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-80
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-80
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-80
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-81
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-81
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-81
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-82
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-82
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-82
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-83
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-83
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-83
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-84
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-84
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-84
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-85
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-85
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-85
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-86
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-86
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-86
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-87
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-87
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-87
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-88
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-88
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-88
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-89
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-89
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-89
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-90
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-90
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-90
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-91
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-91
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-91
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-92
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-92
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-92
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-93
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-93
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-93
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-94
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-94
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-94
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-95
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-95
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-95
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-96
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-96
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-96
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-97
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-97
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-97
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-98
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-98
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-98
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-99
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-99
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-99
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-flood-100
+  namespace: attacker-ns
+  labels:
+    attack: readiness-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: readiness-flood-100
+  template:
+    metadata:
+      labels:
+        app: readiness-flood-100
+        attack: readiness-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---

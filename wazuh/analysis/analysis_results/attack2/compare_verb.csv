@@ -1,0 +1,6 @@
+category,count_baseline,count_attack,taux_baseline_par_min,taux_attack_par_min,variation_absolue,variation_taux_par_min
+get,1063,2308,212.6,461.6,1245,249.00000000000003
+update,710,1418,142.0,283.6,708,141.60000000000002
+watch,309,690,61.8,138.0,381,76.2
+patch,3,12,0.6,2.4,9,1.7999999999999998
+list,4,8,0.8,1.6,4,0.8

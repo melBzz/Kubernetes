@@ -1,0 +1,5113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-1
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-1
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-1
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-2
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-2
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-2
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-3
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-3
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-3
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-4
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-4
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-4
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-5
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-5
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-5
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-6
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-6
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-6
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-7
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-7
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-7
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-8
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-8
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-8
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-9
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-9
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-9
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-10
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-10
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-10
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-11
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-11
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-11
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-12
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-12
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-12
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-13
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-13
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-13
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-14
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-14
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-14
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-15
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-15
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-15
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-16
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-16
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-16
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-17
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-17
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-17
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-18
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-18
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-18
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-19
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-19
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-19
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-20
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-20
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-20
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-21
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-21
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-21
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-22
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-22
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-22
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-23
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-23
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-23
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-24
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-24
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-24
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-25
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-25
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-25
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-26
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-26
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-26
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-27
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-27
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-27
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-28
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-28
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-28
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-29
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-29
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-29
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-30
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-30
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-30
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-31
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-31
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-31
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-32
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-32
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-32
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-33
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-33
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-33
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-34
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-34
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-34
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-35
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-35
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-35
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-36
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-36
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-36
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-37
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-37
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-37
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-38
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-38
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-38
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-39
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-39
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-39
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-40
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-40
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-40
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-41
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-41
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-41
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-42
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-42
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-42
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-43
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-43
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-43
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-44
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-44
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-44
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-45
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-45
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-45
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-46
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-46
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-46
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-47
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-47
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-47
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-48
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-48
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-48
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-49
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-49
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-49
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-50
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-50
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-50
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-51
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-51
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-51
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-52
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-52
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-52
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-53
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-53
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-53
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-54
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-54
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-54
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-55
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-55
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-55
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-56
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-56
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-56
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-57
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-57
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-57
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-58
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-58
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-58
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-59
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-59
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-59
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-60
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-60
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-60
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-61
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-61
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-61
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-62
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-62
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-62
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-63
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-63
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-63
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-64
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-64
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-64
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-65
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-65
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-65
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-66
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-66
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-66
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-67
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-67
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-67
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-68
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-68
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-68
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-69
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-69
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-69
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-70
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-70
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-70
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-71
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-71
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-71
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-72
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-72
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-72
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-73
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-73
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-73
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-74
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-74
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-74
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-75
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-75
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-75
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-76
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-76
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-76
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-77
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-77
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-77
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-78
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-78
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-78
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-79
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-79
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-79
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-80
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-80
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-80
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-81
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-81
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-81
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-82
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-82
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-82
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-83
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-83
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-83
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-84
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-84
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-84
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-85
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-85
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-85
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-86
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-86
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-86
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-87
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-87
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-87
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-88
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-88
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-88
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-89
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-89
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-89
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-90
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-90
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-90
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-91
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-91
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-91
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-92
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-92
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-92
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-93
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-93
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-93
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-94
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-94
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-94
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-95
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-95
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-95
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-96
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-96
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-96
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-97
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-97
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-97
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-98
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-98
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-98
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-99
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-99
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-99
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: endpoints-flood-100
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: endpoints-flood-100
+  template:
+    metadata:
+      labels:
+        app: endpoints-flood-100
+        attack: endpoints-flood
+        group: endpoints-flood-target
+    spec:
+      nodeName: k8s-w1
+      containers:
+      - name: flooder
+        image: busybox:1.36
+        command: ["sleep", "infinity"]
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          exec:
+            command: ["sh", "-c", "test $(( $(date +%s) % 2 )) -eq 0"]
+          periodSeconds: 1
+          timeoutSeconds: 1
+          failureThreshold: 1
+          successThreshold: 1
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "16Mi"
+          limits:
+            cpu: "50m"
+            memory: "32Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: endpoints-flood-svc
+  namespace: attacker-ns
+  labels:
+    attack: endpoints-flood
+spec:
+  selector:
+    group: endpoints-flood-target
+  ports:
+  - port: 80
+    targetPort: 80

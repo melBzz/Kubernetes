@@ -1,0 +1,15 @@
+﻿"data.annotations.authorization.k8s.io/reason.keyword: Descending",Count
+"RBAC: allowed by ClusterRoleBinding ""system:controller:deployment-controller"" of ClusterRole ""system:controller:deployment-controller"" to ServiceAccount ""deployment-controller/kube-system""",1091
+"RBAC: allowed by ClusterRoleBinding ""system:controller:replicaset-controller"" of ClusterRole ""system:controller:replicaset-controller"" to ServiceAccount ""replicaset-controller/kube-system""",1067
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:unauthenticated""",212
+"RBAC: allowed by ClusterRoleBinding ""system:kube-controller-manager"" of ClusterRole ""system:kube-controller-manager"" to User ""system:kube-controller-manager""",150
+"RBAC: allowed by ClusterRoleBinding ""system:kube-scheduler"" of ClusterRole ""system:kube-scheduler"" to User ""system:kube-scheduler""",110
+"RBAC: allowed by ClusterRoleBinding ""system:discovery"" of ClusterRole ""system:discovery"" to Group ""system:authenticated""",47
+"RBAC: allowed by ClusterRoleBinding ""calico-kube-controllers"" of ClusterRole ""calico-kube-controllers"" to ServiceAccount ""calico-kube-controllers/kube-system""",20
+"RBAC: allowed by ClusterRoleBinding ""kubeadm:cluster-admins"" of ClusterRole ""cluster-admin"" to Group ""kubeadm:cluster-admins""",15
+"RBAC: allowed by ClusterRoleBinding ""kubeadm:node-proxier"" of ClusterRole ""system:node-proxier"" to ServiceAccount ""kube-proxy/kube-system""",5
+"RBAC: allowed by ClusterRoleBinding ""system:coredns"" of ClusterRole ""system:coredns"" to ServiceAccount ""coredns/kube-system""",2
+"RBAC: allowed by ClusterRoleBinding ""system:volume-scheduler"" of ClusterRole ""system:volume-scheduler"" to User ""system:kube-scheduler""",2
+"RBAC: allowed by ClusterRoleBinding ""system:public-info-viewer"" of ClusterRole ""system:public-info-viewer"" to Group ""system:authenticated""",1
+"RBAC: allowed by RoleBinding ""system::extension-apiserver-authentication-reader/kube-system"" of Role ""extension-apiserver-authentication-reader"" to User ""system:kube-scheduler""",1
+"RBAC: allowed by RoleBinding ""system::leader-locking-kube-scheduler/kube-system"" of Role ""system::leader-locking-kube-scheduler"" to User ""system:kube-scheduler""",1

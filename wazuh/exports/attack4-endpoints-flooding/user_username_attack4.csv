@@ -1,0 +1,18 @@
+﻿"data.user.username.keyword: Descending",Count
+"system:node:k8s-w1",5318
+"system:serviceaccount:kube-system:deployment-controller",3129
+"system:serviceaccount:kube-system:replicaset-controller",3119
+"system:serviceaccount:kube-system:endpoint-controller",2032
+"system:serviceaccount:kube-system:endpointslice-controller",1964
+"system:anonymous",423
+"system:kube-controller-manager",272
+"system:kube-scheduler",219
+"system:apiserver",140
+"system:serviceaccount:kube-system:calico-kube-controllers",79
+"system:node:k8s-cp",64
+"system:node:k8s-w2",63
+"kubernetes-admin",31
+"system:serviceaccount:kube-system:resourcequota-controller",27
+"system:serviceaccount:kube-system:generic-garbage-collector",26
+"system:serviceaccount:kube-system:kube-proxy",7
+"system:serviceaccount:kube-system:coredns",3
