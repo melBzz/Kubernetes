@@ -1,4 +1,4 @@
-# Kubernetes Attack Detection — Reproduction and Detection via Audit Logs
+# Kubernetes Attack Detection - Reproduction and Detection via Audit Logs
 
 This project reproduces four control-plane attacks from Wang et al., *Losing control*, against a local Kubernetes cluster, measures their impact, and evaluates whether each attack is detectable in the API server's audit logs analyzed via Wazuh. The audit-log detection approach, and the audit policy used, follow Franzil et al., *Sharpening Kubernetes Audit Logs with Context Awareness*.
 
