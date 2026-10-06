@@ -13,10 +13,10 @@ This project reproduces four control-plane attacks from Wang et al., *Losing con
 
 Each attack has its own directory under `attacks/` (`attack1-coredns`, `attack2-kube-apiserver`, `attack3-readiness-probe`, `attack4-endpoints-flooding`), structured as follows:
 
-- `manifests/` — Kubernetes manifests to deploy
-- `scripts/` — attack execution and measurement scripts
-- `analysis/` — attack-specific analysis (mechanism, impact, detectability)
-- `results/` — raw measurement data (CSV)
+- `manifests/` - Kubernetes manifests to deploy
+- `scripts/` - attack execution and measurement scripts
+- `analysis/` - attack-specific analysis (mechanism, impact, detectability)
+- `results/` - raw measurement data (CSV)
 
 Generic steps:
 
