@@ -1,6 +1,6 @@
 # Reproducing the attacks from the paper: Losing control: Exposing security weaknesses of Kubernetes control plane interfaces
 
-First, we will try to understand and then reproduce the attacks presented in the research paper *[insert paper link]*.
+First, we will try to understand and then reproduce the attacks presented in the research paper.
 Second, we will look at existing solutions for securing a Kubernetes cluster, as well as measures that would specifically prevent the reproduced attacks.
 
 # 1. The attack environment
