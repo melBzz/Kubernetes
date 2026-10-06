@@ -51,5 +51,5 @@ A full analysis per attack (mechanism, impact vs. the paper, and detectability) 
 
 ## References
 
-- `papers/losing-control-k8s-control-plane-interfaces.pdf` — C. Wang, H. Tang, Y. Zhao, W. You, J. Yang, H. Qiu, *Losing control: Exposing security weaknesses of Kubernetes control plane interfaces*. Source of the four reproduced attacks (its Cases 1–4).
-- `papers/sharpening-k8s-audit-logs-context-awareness.pdf` — M. Franzil, V. Armani, L. A. Dias Knob, D. Siracusa, *Sharpening Kubernetes Audit Logs with Context Awareness*. Basis for the audit-log detection approach and the audit policy used here.
+- `papers/losing-control-k8s-control-plane-interfaces.pdf` - C. Wang, H. Tang, Y. Zhao, W. You, J. Yang, H. Qiu, *Losing control: Exposing security weaknesses of Kubernetes control plane interfaces*. Source of the four reproduced attacks (its Cases 1–4).
+- `papers/sharpening-k8s-audit-logs-context-awareness.pdf` - M. Franzil, V. Armani, L. A. Dias Knob, D. Siracusa, *Sharpening Kubernetes Audit Logs with Context Awareness*. Basis for the audit-log detection approach and the audit policy used here.
