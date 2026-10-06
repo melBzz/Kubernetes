@@ -38,10 +38,10 @@ For each attack:
 
 | Attack | Layer it operates at | Impact reproduced | Detectable in audit logs? |
 |---|---|---|---|
-| 1 — CoreDNS flood | DNS / network (outside API server) | Yes (conntrack saturation, packet loss) | **No** - never reaches the API server |
-| 2 — Kube-apiserver flood | TCP / conntrack (below HTTP layer) | Yes (conntrack saturation, apiserver CPU) | **Indirect only** - the flood saturates below the audited layer; the attacker's own requests are absent |
-| 3 — Readiness-probe | Through the API (`pods/status` patch) | Yes (apiserver + etcd CPU) | **Yes** - strong, specific signature |
-| 4 — Endpoints flooding | Through the API (+ kube-proxy fan-out) | Yes (apiserver CPU, all-nodes iptables reprogramming) | **Yes** - two dependency chains, strongest signature |
+| 1 - CoreDNS flood | DNS / network (outside API server) | Yes (conntrack saturation, packet loss) | **No** - never reaches the API server |
+| 2 - Kube-apiserver flood | TCP / conntrack (below HTTP layer) | Yes (conntrack saturation, apiserver CPU) | **Indirect only** - the flood saturates below the audited layer; the attacker's own requests are absent |
+| 3 - Readiness-probe | Through the API (`pods/status` patch) | Yes (apiserver + etcd CPU) | **Yes** - strong, specific signature |
+| 4 - Endpoints flooding | Through the API (+ kube-proxy fan-out) | Yes (apiserver CPU, all-nodes iptables reprogramming) | **Yes** - two dependency chains, strongest signature |
 
 ## Key finding
 
