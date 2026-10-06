@@ -2,22 +2,13 @@
 #
 # watch-coredns-metrics.sh
 #
-# Surveille en temps réel, à intervalle régulier, l'ensemble des métriques
-# CoreDNS pertinentes pour l'attaque DoS (voir tableau de référence) pendant
-# qu'une attaque tourne (lancée séparément avec launch-attack.sh dans un
-# autre terminal).
+# Monitors in real time, at a regular interval, all the
+# CoreDNS metrics relevant to the attack.
 #
-# Trois sorties générées :
-#   1. Affichage condensé en direct dans le terminal
-#   2. CSV structuré (metrics_timeline.csv) avec les 11 métriques, une ligne
-#      par intervalle de temps, prêt pour un tableur / graphique
-#   3. Dump brut complet de /metrics à chaque itération (raw/<timestamp>.txt)
-#      en sauvegarde, pour ne rien perdre même si le parsing CSV est imparfait
+# Usage: ./watch-coredns-metrics.sh [interval_seconds]
+#   (default interval: 10s)
 #
-# Usage : ./watch-coredns-metrics.sh [intervalle_secondes]
-#   (intervalle par défaut : 10s)
-#
-# Ctrl+C pour arrêter la surveillance (n'arrête pas l'attaque elle-même).
+# Ctrl+C to stop monitoring (does not stop the attack itself).
 #
 
 set -uo pipefail
@@ -40,13 +31,13 @@ log() {
 }
 
 if [ "$(id -u)" -eq 0 ]; then
-    echo "ERREUR : ne lancez pas ce script avec 'sudo'. Lancez-le en utilisateur normal."
-    echo "  (il utilisera sudo lui-même ponctuellement pour nf_conntrack)"
+    echo "ERROR: do not run this script with 'sudo'. Run it as a normal user."
+    echo "  (it will use sudo itself briefly for nf_conntrack)"
     exit 1
 fi
 
 if ! kubectl get nodes >/dev/null 2>&1; then
-    echo "ERREUR : kubectl ne parvient pas à contacter le cluster."
+    echo "ERROR: kubectl cannot reach the cluster."
     exit 1
 fi
 
@@ -62,15 +53,15 @@ sum_metric_label() {
 
 echo "timestamp,rejects_total,proxy_conn_cache_misses_total,proxy_req_duration_count,proxy_req_duration_sum,dns_requests_A,dns_requests_AAAA,dns_requests_other,dns_responses_NOERROR,dns_responses_NXDOMAIN,dns_responses_SERVFAIL,dns_responses_other,cache_entries_denial,cache_entries_success,cache_requests_total,cache_misses_total,dns_req_duration_sum,dns_req_duration_count,conntrack_count,conntrack_max" > "$CSV_FILE"
 
-log "=== Surveillance démarrée (intervalle ${INTERVAL}s) ==="
-log "CSV structuré : $CSV_FILE"
-log "Dumps bruts complets : $RAW_DIR/"
-log "Ctrl+C pour arrêter (n'arrête pas l'attaque)"
+log "=== Monitoring started (interval ${INTERVAL}s) ==="
+log "Structured CSV: $CSV_FILE"
+log "Full raw dumps: $RAW_DIR/"
+log "Ctrl+C to stop (does not stop the attack)"
 echo
-printf "%-10s %-9s %-16s %-10s %-10s %-8s\n" "HEURE" "REJECTS" "CONNTRACK" "DNS_REQ" "CACHE_MISS" "SERVFAIL"
+printf "%-10s %-9s %-16s %-10s %-10s %-8s\n" "TIME" "REJECTS" "CONNTRACK" "DNS_REQ" "CACHE_MISS" "SERVFAIL"
 printf "%s\n" "----------------------------------------------------------------------"
 
-trap 'echo; log "Surveillance arrêtée."; log "CSV : $CSV_FILE"; log "Raw : $RAW_DIR/"; exit 0' INT TERM
+trap 'echo; log "Monitoring stopped."; log "CSV: $CSV_FILE"; log "Raw: $RAW_DIR/"; exit 0' INT TERM
 
 while true; do
     now=$(date '+%H:%M:%S')
@@ -118,7 +109,7 @@ while true; do
 
     alert=""
     if [ -n "$rejects" ] && [ "$rejects" != "0" ]; then
-        alert=" <<< REJETS DETECTES !"
+        alert=" <<< REJECTS DETECTED!"
     fi
 
     printf "%-10s %-9s %-16s %-10s %-10s %-8s%s\n" \

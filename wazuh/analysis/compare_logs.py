@@ -18,7 +18,7 @@ except NameError:
     ATTACK_SUFFIX = "attack1"
 
 BASELINE_DURATION_MIN = 5
-ATTACK_DURATION_MIN = 5  # <-- ajuste selon la durée réelle de ta capture d'attaque
+ATTACK_DURATION_MIN = 5  
 
 TERMS_FILES = [
     "verb",
@@ -149,7 +149,7 @@ def run_comparison():
         BASELINE_DIR, ATTACK_DIR, BASELINE_SUFFIX, ATTACK_SUFFIX
     )
 
-    # Export CSV de tout
+    # Export CSV
     for field, df in results.items():
         df.to_csv(OUTPUT_DIR / f"compare_{field}.csv", index=False)
     summary.to_csv(OUTPUT_DIR / "compare_summary.csv", index=False)

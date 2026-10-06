@@ -3,15 +3,13 @@
 Aggregates the three measurement streams collected for the kube-apiserver
 attack (Case 2) into a summary table of averages.
 
-Three separate CSV sources, from three different scripts:
+Three CSV sources:
   - watch_apiserver_<label>.csv (k8s-cp): nf_conntrack occupancy and
-    whole-node CPU usage, local reads, every row used.
-  - <label>_cpu_loop.csv (k8s-cp): CPU usage of the kube-apiserver and
-    etcd processes specifically (capture-cpu-loop-apiserver.sh), no
-    status column, every row used.
+    whole-node CPU usage, every row used.
+  - <label>_cpu_loop.csv (k8s-cp): CPU usage of kube-apiserver and etcd
+    specifically, no status column, every row used.
   - <label>_tcp_loss_loop<n>.csv (k8s-w2): TCP packet loss on the victim
-    pod, measured via nsenter. Only tcp_probe_status == OK rows are
-    averaged.
+    pod, only tcp_probe_status == OK rows averaged.
 
 Usage (run from analysis/, with results/ as a sibling folder):
     python3 aggregate_averages.py before

@@ -4,11 +4,7 @@
 #
 # Samples CPU usage of the coredns process specifically (not whole-system
 # CPU), looped over time and written to CSV. Computed as a CPU-tick delta
-# over each interval (/proc/<pid>/stat), not ps's %cpu, which averages
-# over the process's whole lifetime and barely moves for a long-running
-# pod. Matches the paper's own attribution for this attack ("the CoreDNS
-# pods consume 90% control plane CPU resources", Section 4.2). Run on
-# whichever node hosts the CoreDNS pod (currently k8s-cp).
+# over each interval (/proc/<pid>/stat).
 #
 # Usage: ./capture-cpu-loop-coredns.sh [label] [interval_seconds] [duration_seconds]
 #   label    : default "run"

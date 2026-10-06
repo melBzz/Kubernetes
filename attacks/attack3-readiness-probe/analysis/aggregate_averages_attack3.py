@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
 """
 Aggregates every CSV file matching a given label (e.g. "before", "after")
-into a summary table of averages.
+into a summary table of averages: per-run average and global average
+(all rows across runs).
 
-Looks for all <label>*.csv files in the given directory (before_cpu_loop.csv,
-after_cpu_loop.csv, ...), loads each one, and computes:
-  - the average per run (one file = one run)
-  - the global average (all rows from all runs combined)
-
-cpu_kube_apiserver, cpu_etcd and cpu_total come from capture-cpu-loop-attack3.sh,
-which has no status column of its own: all rows are used as-is.
+cpu_kube_apiserver, cpu_etcd and cpu_total come from
+capture-cpu-loop-attack3.sh, no status column, every row used as-is.
 
 Usage (run from the folder containing the CSV files, e.g. results/):
     python3 aggregate_averages_attack3.py before

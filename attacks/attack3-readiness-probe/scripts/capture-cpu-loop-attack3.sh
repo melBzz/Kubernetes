@@ -4,11 +4,8 @@
 #
 # Samples CPU usage of the kube-apiserver and etcd processes specifically
 # (not whole-system CPU), looped over time and written to CSV. Computed
-# as a CPU-tick delta over each interval (/proc/<pid>/stat), not ps's
-# %cpu, which averages over the process's whole lifetime and barely
-# moves for a long-running process. Matches the paper's own attribution
-# for this attack ("the kube-apiserver and etcd consume 55.3% additional
-# CPU resources", Section 4.4). Run on k8s-cp.
+# as a CPU-tick delta over each interval (/proc/<pid>/stat).
+# Run on k8s-cp.
 #
 # Usage: ./capture-cpu-loop-attack3.sh [label] [interval_seconds] [duration_seconds]
 #   label    : default "run"

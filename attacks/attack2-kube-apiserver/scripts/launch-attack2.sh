@@ -8,7 +8,7 @@
 # The attack keeps running indefinitely until manually deleted:
 #   kubectl delete deployment apiserver-flood -n attacker-ns
 #
-# Usage: ./launch-attack22.sh
+# Usage: ./launch-attack.sh
 #
 set -uo pipefail
 

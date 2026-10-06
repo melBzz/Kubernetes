@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# launch-attack.sh
+# launch-attack4.sh
 #
 # Deploys the endpoints flood (endpoints-flood-generated.yaml, 100
 # Deployments plus the Service that groups them) and waits for the

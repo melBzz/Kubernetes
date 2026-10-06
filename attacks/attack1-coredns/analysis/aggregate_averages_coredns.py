@@ -1,26 +1,13 @@
 #!/usr/bin/env python3
 """
 Aggregates every CSV file matching a given label (e.g. "before", "after")
-into a summary table of averages.
+into a summary table of averages: per-run average and global average
+(all OK rows across runs).
 
-Looks for all <label>*.csv files in the given directory (before1.csv,
-before_cpu_loop.csv, ...), loads each one, and computes:
-  - the average per run (one file = one run)
-  - the global average (all OK rows from all runs combined)
-
-Rows where fetch_status != "OK" are excluded rather than counted as 0: a
-failed request is a missing measurement, not a true zero.
-
-tcp_probe_loss_pct is an independent measurement (a separate kubectl exec
-from safe-pod, with its own status), filtered on tcp_probe_status == "OK",
-never on fetch_status.
-
-cpu_coredns comes from a separate file (<label>_cpu_loop.csv, produced by
-capture-cpu-loop-coredns.sh), with no status column of its own: all its
-rows are used as-is. Since it has no columns in common with the metrics
-CSV besides timestamp, concatenating both under one label just lines up
-each metric under its own column, NaN elsewhere, which pandas' mean()
-ignores automatically.
+Rows where fetch_status != "OK" are excluded (missing measurement, not zero).
+tcp_probe_loss_pct is filtered independently on tcp_probe_status == "OK".
+cpu_coredns (from <label>_cpu_loop.csv) has no status column, so all its
+rows are used as-is.
 
 Usage (run from the folder containing the CSV files, e.g. results/):
     python3 aggregate_averages_coredns.py before
